@@ -1,0 +1,100 @@
+# The Meridian, as a file.
+#
+# EVERY LINE IS A KEY AND ITS WORDS. There is no punctuation to get wrong, no quoting, no
+# nesting and no indentation rule -- the indentation below is for a reader and the loader
+# ignores it. A format a person can fix in Notepad at three in the morning is worth more than
+# a format that is elegant.
+#
+# THE FIRST NON-COMMENT LINE IS THE VERSION, and the loader refuses a file without one.
+
+meridian 2
+
+scene tour
+  camera    5.0 1.0 17.0
+  look      0.230 0.115 68
+  tonemap   aces
+  exposure  1.0
+  bloom     0.60 1.00
+  dust      6000 drift box 30 0.7 1.0
+  stars     10000 camera 1.0 1.0
+  material  globe brass
+  note      from a file, not from a table
+end
+
+scene dawn
+  camera    5.0 1.0 17.0
+  look      0.230 0.115 68
+  tonemap   aces
+  exposure  2.6
+  bloom     0.60 1.00
+  dust      6000 drift box 30 0.7 1.0
+  stars     10000 camera 1.0 1.0
+  note      two and a half stops open
+end
+
+scene dusk
+  camera    5.0 1.0 17.0
+  look      0.230 0.115 68
+  tonemap   aces
+  exposure  0.40
+  bloom     0.60 1.00
+  dust      6000 drift box 30 0.7 1.0
+  stars     10000 camera 1.0 1.0
+  note      and two and a half stops down
+end
+
+scene swarm
+  camera    5.0 1.0 17.0
+  look      0.230 0.115 68
+  tonemap   aces
+  exposure  1.0
+  bloom     0.60 1.00
+  dust      6000 drift box 30 0.7 1.0
+  stars     40000 camera 1.0 1.0
+  note      four times the stars
+end
+
+scene close
+  camera    3.9 -1.0 6.0
+  look      0.200 -0.150 62
+  tonemap   aces
+  exposure  1.0
+  bloom     0.60 1.00
+  dust      12000 swirl box 30 0.9 1.0
+  stars     4000 camera 1.0 1.0
+  material  globe verdigris
+  note      close, and a different enamel
+end
+
+scene beam
+  camera    1.8 -1.6 13.0
+  look      0.120 0.300 64
+  tonemap   aces
+  exposure  1.0
+  bloom     0.60 1.00
+  dust      60000 drift beam 8 1.2 1.4
+  stars     3000 camera 1.0 1.0
+  note      the shaft of light, from a file
+end
+
+scene ember
+  camera    5.0 1.0 17.0
+  look      0.230 0.115 68
+  tonemap   aces
+  exposure  1.0
+  bloom     0.60 1.00
+  dust      6000 drift box 30 0.9 7.0
+  stars     10000 camera 1.2 6.0
+  note      everything over 1.0
+end
+
+scene plain
+  camera    5.0 1.0 17.0
+  look      0.230 0.115 68
+  tonemap   reinhard
+  exposure  1.0
+  bloom     0.00 1.00
+  dust      0 drift box 0 0.7 1.0
+  stars     0 off 1.0 1.0
+  note      no dust, no stars, reinhard
+end

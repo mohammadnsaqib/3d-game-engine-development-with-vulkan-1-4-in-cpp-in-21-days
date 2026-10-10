@@ -1,0 +1,82 @@
+loader   : instance version 1.4.321
+layers   : 11 available, validation is PRESENT
+instance : created, asking for Vulkan 1.4, validation on
+devices  : 1
+  NVIDIA GeForce RTX 4070            discrete   api 1.4.325
+gpu      : NVIDIA GeForce RTX 4070
+queues   : 6 family(ies) on this card
+  family 0  16 queue(s)  graphics compute transfer sparse
+  family 1   2 queue(s)  transfer sparse
+  family 2   8 queue(s)  compute transfer sparse
+  family 3   1 queue(s)  transfer sparse
+  family 4   1 queue(s)  transfer sparse
+  family 5   1 queue(s)  transfer sparse
+device   : queue family 0, dynamic rendering and sync2 enabled
+dispatch : 59 device-level entry point(s) from the registry, 0 missing
+spirv    : 232 and 112 words, compiled at BUILD time
+memory   : 5 type(s) in 3 heap(s)
+  heap 0   12011 MB  device local
+  heap 1   16304 MB  host
+  heap 2     214 MB  device local
+  type  0 heap 1  
+  type  1 heap 0  DEVICE_LOCAL 
+  type  2 heap 1  HOST_VISIBLE HOST_COHERENT 
+  type  3 heap 1  HOST_VISIBLE HOST_COHERENT HOST_CACHED
+  type  4 heap 2  DEVICE_LOCAL HOST_VISIBLE HOST_COHERENT 
+pipeline : 10 scene(s), each one a separate compiled object
+pipeline : cold   12651 us   filling   19095 us   cached   10352 us
+pipeline : 1265 us each cold, 1035 us each cached
+cache    : 34186 bytes, and this is what a game writes to disk
+buffers  : ring 512 vertices (10240 bytes), 1536 indices, 512 chord indices
+memtype  : ring_vb in type 1, wobble_vb in type 2
+upload   : staged 887.6 us, mapped write 5.7 us, same 10240 bytes
+surface  : queue family 0 CAN present to this window
+surface  : 2 to 8 image(s), current 1280x720
+surface  : 5 format(s) offered
+present  : 5 mode(s) on this surface
+  FIFO        a queue, and the only one
+  FIFO_RELAXED  tear only if late
+  MAILBOX     replace the queued frame
+  IMMEDIATE   tear, never wait
+  other
+swapchain: 3 image(s) of 1280x720, FIFO, and you do not own them
+window   : created, never shown -- the capture opens no screen
+wrote  : opaque      1 panel(s)  two rings, opposite windings, nothing culled
+wrote  : alpha       1 panel(s)  srcAlpha, oneMinusSrcAlpha, at 0.45
+wrote  : additive    1 panel(s)  srcAlpha, ONE -- light adds, it does not cover
+wrote  : wireframe   1 panel(s)  polygonMode LINE: every triangle edge
+wrote  : widelines   1 panel(s)  the same edges at lineWidth 5
+wrote  : polypoint   1 panel(s)  polygonMode POINT: one point per vertex
+wrote  : cullback    1 panel(s)  cullMode BACK: one winding survives
+wrote  : cullfront   1 panel(s)  cullMode FRONT: the other one does
+wrote  : panels      4 panel(s)  four viewports, four scissors, ONE pipeline
+wrote  : scissored   1 panel(s)  the scissor keeps 55% of the viewport
+compare: alpha       vs opaque     36.95% of pixels differ
+compare: additive    vs alpha      36.95% of pixels differ
+compare: wireframe   vs opaque     29.44% of pixels differ
+compare: widelines   vs wireframe  24.51% of pixels differ
+compare: cullback    vs opaque     23.54% of pixels differ
+compare: cullfront   vs cullback   36.95% of pixels differ
+compare: panels      vs opaque     62.04% of pixels differ
+compare: scissored   vs opaque     10.73% of pixels differ
+provoke  : submitting a command buffer that was never recorded
+  vk ERROR  vkQueueSubmit2():
+           pSubmits[0].pCommandBufferInfos[0].commandBuffer
+           VkCommandBuffer 0x22dfd47e800 is unrecorded and contains no
+           commands.
+           The Vulkan spec states: The commandBuffer member of any element
+           of the pCommandBufferInfos member of any element of pSubmits
+           must be in the pending or executable state
+           (https://docs.vulkan.org/spec/latest/chapters/cmdbuffers.html#V
+           ID-vkQueueSubmit2-commandBuffer-03874)
+provoke  : vkQueueSubmit2 returned 0, and the layer said the rest
+wic      : asked for RGBA and was given BGRA
+debug    : 1 message(s) from the validation layer this run
+done     : 10 picture(s), no window opened
+
+--- compare_scissored.exe ---------------------------------------------
+compare: scissored   vs opaque     10.73% of pixels differ
+
+--- compare_wireframe.exe ---------------------------------------------
+compare: wireframe   vs opaque     29.44% of pixels differ
+compare: widelines   vs wireframe  24.51% of pixels differ

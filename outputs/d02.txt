@@ -1,0 +1,48 @@
+loader   : instance version 1.4.321
+layers   : 11 available, validation is PRESENT
+instance : created, asking for Vulkan 1.4, validation on
+devices  : 1
+  NVIDIA GeForce RTX 4070            discrete   api 1.4.325
+gpu      : NVIDIA GeForce RTX 4070
+queues   : 6 family(ies) on this card
+  family 0  16 queue(s)  graphics compute transfer sparse
+  family 1   2 queue(s)  transfer sparse
+  family 2   8 queue(s)  compute transfer sparse
+  family 3   1 queue(s)  transfer sparse
+  family 4   1 queue(s)  transfer sparse
+  family 5   1 queue(s)  transfer sparse
+device   : queue family 0, dynamic rendering and sync2 enabled
+dispatch : 40 device-level entry point(s) from the registry, 0 missing
+spirv    : 697 and 108 words, compiled at BUILD time
+memory   : 5 type(s) in 3 heap(s)
+  heap 0   12011 MB  device local
+  heap 1   16304 MB  host
+  heap 2     214 MB  device local
+wrote  : fan       1920x1080   64 draws  64 wedges, and 64 draw calls
+wrote  : four      1920x1080    4 draws  four wedges: the construction, visible
+wrote  : eight     1920x1080    8 draws  eight, and the circle is still a polygon
+wrote  : sixteen   1920x1080   16 draws  sixteen, where the eye stops objecting
+wrote  : many      1920x1080  256 draws  256 wedges, and 256 trips through the loader
+wrote  : star      1920x1080   32 draws  one constant changed, and a different shape
+wrote  : spiral    1920x1080  128 draws  a radius that grows with the angle
+wrote  : wires     1920x1080   24 draws  the same wedges, drawn as their edges
+wrote  : square     900x900    64 draws  a square image, and the aspect constant 1.0
+wrote  : wide      2560x720    96 draws  a wide image, corrected by one constant
+bench    : no layers, 200000 valid draws, recorded twice
+bench    : through the loader's trampoline :    41.6 ns a call
+bench    : through the generated table     :    41.9 ns a call
+bench    : the trampoline costs -0.33 ns a call, 0.99 times
+provoke  : submitting a command buffer that was never recorded
+  vk ERROR  vkQueueSubmit2():
+           pSubmits[0].pCommandBufferInfos[0].commandBuffer
+           VkCommandBuffer 0x1dff907ebe0 is unrecorded and contains no
+           commands.
+           The Vulkan spec states: The commandBuffer member of any element
+           of the pCommandBufferInfos member of any element of pSubmits
+           must be in the pending or executable state
+           (https://docs.vulkan.org/spec/latest/chapters/cmdbuffers.html#V
+           ID-vkQueueSubmit2-commandBuffer-03874)
+provoke  : vkQueueSubmit2 returned 0, and the layer said the rest
+wic      : asked for RGBA and was given BGRA
+debug    : 1 message(s) from the validation layer this run
+done     : 10 picture(s), no window opened

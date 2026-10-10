@@ -1,0 +1,83 @@
+loader   : instance version 1.4.321
+layers   : 11 available, validation is PRESENT
+instance : created, asking for Vulkan 1.4, validation on
+devices  : 1
+  NVIDIA GeForce RTX 4070            discrete   api 1.4.325
+gpu      : NVIDIA GeForce RTX 4070
+queues   : 6 family(ies) on this card
+  family 0  16 queue(s)  graphics compute transfer sparse
+  family 1   2 queue(s)  transfer sparse
+  family 2   8 queue(s)  compute transfer sparse
+  family 3   1 queue(s)  transfer sparse
+  family 4   1 queue(s)  transfer sparse
+  family 5   1 queue(s)  transfer sparse
+device   : queue family 0, dynamic rendering and sync2 enabled
+dispatch : 59 device-level entry point(s) from the registry, 0 missing
+spirv    : 304 and 184 words, compiled at BUILD time
+push     : 72 bytes of range, 256 available, 128 guaranteed anywhere
+memory   : 5 type(s) in 3 heap(s)
+  heap 0   12011 MB  device local
+  heap 1   16304 MB  host
+  heap 2     214 MB  device local
+  type  0 heap 1  
+  type  1 heap 0  DEVICE_LOCAL 
+  type  2 heap 1  HOST_VISIBLE HOST_COHERENT 
+  type  3 heap 1  HOST_VISIBLE HOST_COHERENT HOST_CACHED
+  type  4 heap 2  DEVICE_LOCAL HOST_VISIBLE HOST_COHERENT 
+mesh     : cube 36 indices, plane 6 indices, 32 bytes a vertex
+texture  : 512x512, 10 level(s), built in 626 us
+texture  : level 0 is 1048576 bytes, the whole image is 1399808
+texture  : the chain cost 33.5% more memory than one level
+sampler  : maxSamplerAnisotropy on this card is 16
+pipeline : 10 scene(s), each one a separate compiled object
+pipeline : cold    5261 us   filling    8284 us   cached    4155 us
+pipeline : 526 us each cold, 415 us each cached
+cache    : 15214 bytes, and this is what a game writes to disk
+memtype  : cube_vb in type 1, cube_ib in type 1
+matrix   : mvp[10] -0.913546, and every scene shares one projection
+surface  : queue family 0 CAN present to this window
+surface  : 2 to 8 image(s), current 1280x720
+surface  : 5 format(s) offered
+present  : 5 mode(s) on this surface
+  FIFO        a queue, and the only one
+  FIFO_RELAXED  tear only if late
+  MAILBOX     replace the queued frame
+  IMMEDIATE   tear, never wait
+  other
+swapchain: 3 image(s) of 1280x720, FIFO, and you do not own them
+window   : created, never shown -- the capture opens no screen
+wrote  : nearest   cube   magnified with NEAREST: the texels show
+wrote  : linear    cube   magnified with LINEAR: they blend
+wrote  : nomip     plane  one level only: the floor boils
+wrote  : mipnear   plane  ten levels, MIPMAP_MODE_NEAREST
+wrote  : trilinear plane  the same, blended between levels
+wrote  : aniso     plane  maxAnisotropy 16: the distance sharpens
+wrote  : repeat    plane  REPEAT: 0..3 wraps three times
+wrote  : clamp     plane  CLAMP_TO_EDGE: the last texel smears
+wrote  : mirror    plane  MIRRORED_REPEAT: every other tile flips
+wrote  : border    plane  CLAMP_TO_BORDER: one chosen colour
+compare: linear    vs nearest     7.86% of pixels differ
+compare: mipnear   vs nomip      23.65% of pixels differ
+compare: trilinear vs mipnear    27.10% of pixels differ
+compare: aniso     vs trilinear  28.29% of pixels differ
+compare: aniso     vs nomip      19.14% of pixels differ
+compare: clamp     vs repeat     99.34% of pixels differ
+compare: mirror    vs repeat     85.24% of pixels differ
+compare: border    vs clamp     100.00% of pixels differ
+provoke  : submitting a command buffer that was never recorded
+  vk ERROR  vkQueueSubmit2():
+           pSubmits[0].pCommandBufferInfos[0].commandBuffer
+           VkCommandBuffer 0x2c05201b6f0 is unrecorded and contains no
+           commands.
+           The Vulkan spec states: The commandBuffer member of any element
+           of the pCommandBufferInfos member of any element of pSubmits
+           must be in the pending or executable state
+           (https://docs.vulkan.org/spec/latest/chapters/cmdbuffers.html#V
+           ID-vkQueueSubmit2-commandBuffer-03874)
+provoke  : vkQueueSubmit2 returned 0, and the layer said the rest
+wic      : asked for RGBA and was given BGRA
+debug    : 1 message(s) from the validation layer this run
+done     : 10 picture(s), no window opened
+
+--- compare.exe -------------------------------------------------------
+compare: linear    vs nearest     7.86% of pixels differ

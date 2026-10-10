@@ -1,0 +1,155 @@
+loader   : instance version 1.4.321
+layers   : 11 available, validation is PRESENT
+instance : created, asking for Vulkan 1.4, validation on
+devices  : 1
+  NVIDIA GeForce RTX 4070            discrete   api 1.4.325
+gpu      : NVIDIA GeForce RTX 4070
+queues   : 6 family(ies) on this card
+  family 0  16 queue(s)  graphics compute transfer sparse
+  family 1   2 queue(s)  transfer sparse
+  family 2   8 queue(s)  compute transfer sparse
+  family 3   1 queue(s)  transfer sparse
+  family 4   1 queue(s)  transfer sparse
+  family 5   1 queue(s)  transfer sparse
+device   : queue family 0, dynamic rendering and sync2 enabled
+dispatch : 61 device-level entry point(s) from the registry, 0 missing
+spirv    : 553 and 3194 words, compiled at BUILD time
+push     : 96 bytes of range, 256 available, 128 guaranteed anywhere
+memory   : 5 type(s) in 3 heap(s)
+  heap 0   12011 MB  device local
+  heap 1   16304 MB  host
+  heap 2     214 MB  device local
+  type  0 heap 1  
+  type  1 heap 0  DEVICE_LOCAL 
+  type  2 heap 1  HOST_VISIBLE HOST_COHERENT 
+  type  3 heap 1  HOST_VISIBLE HOST_COHERENT HOST_CACHED
+  type  4 heap 2  DEVICE_LOCAL HOST_VISIBLE HOST_COHERENT 
+vertex   : 44 bytes -- position, colour, uv, and a normal
+mesh     : 8920 vertices, 49176 indices, 16392 triangles, 9 parts
+mesh     : 589184 bytes in ONE vertex buffer and ONE index buffer
+mesh     : staged in 7688 us
+  globe     first      0  count  18432  vertexOffset      0  material 2
+  equator   first  18432  count   5760  vertexOffset   3185  material 5
+  colure    first  24192  count   5760  vertexOffset   4252  material 1
+  tropic    first  29952  count   5760  vertexOffset   5319  material 7
+  axis      first  35712  count    144  vertexOffset   6386  material 5
+  horizon   first  35856  count   9216  vertexOffset   6436  material 4
+  column    first  45072  count    120  vertexOffset   8113  material 4
+  plinth    first  45192  count    144  vertexOffset   8155  material 6
+  rim       first  45336  count   3840  vertexOffset   8205  material 4
+texture  : 8 materials of 256x256, 9 level(s), 439 us each
+limits   : 32 bound sets, 1048576 sampled images a stage, UB align 64
+sets     : set 0 is a camera UBO and a lights SSBO; set 1 is 8 images
+storage  : 16 byte alignment, 4294967295 bytes addressable in one binding
+lamp     : 32 bytes each in std430, 64 maximum, 2064 byte buffer
+surface  : 2 floats a part -- roughness and metalness, in the push block
+  globe     roughness 0.55  metalness 0
+  equator   roughness 0.18  metalness 1
+  colure    roughness 0.22  metalness 1
+  tropic    roughness 0.30  metalness 1
+  axis      roughness 0.12  metalness 1
+  horizon   roughness 0.35  metalness 1
+  column    roughness 0.60  metalness 0
+  plinth    roughness 0.75  metalness 0
+  rim       roughness 0.28  metalness 1
+shadow   : 2048x2048 D32_SFLOAT, 16777216 bytes, comparison sampler
+shadow   : one vertex shader, no fragment shader, no colour attachment
+hdr      : R16G16B16A16_SFLOAT, 8 bytes a pixel, 15.8 MB at 1920x1080
+bloom    : two 960x540 buffers, a quarter of the pixels each
+frame    : 5 passes -- dispatch, shadow, scene, bloom (x3), tone map
+compute  : max 1024 invocation(s) a group, max 1024 in x, 2147483647 group(s) in x
+compute  : subgroup 32 -- a workgroup not a multiple of it wastes lanes
+points   : gl_PointSize may be 1 to 2048 pixels on this card
+motes    : 160000 of 32 bytes -- 4.88 MB, device local, never mapped
+local    :   1 ->   104.5 us a step  (150000 group(s))
+local    :   8 ->    18.0 us a step  ( 18750 group(s))
+local    :  32 ->    10.3 us a step  (  4688 group(s))
+local    :  64 ->    14.9 us a step  (  2344 group(s))
+local    : 256 ->    15.3 us a step  (   586 group(s))
+step     : GPU    14.9 us   CPU  6155.6 us   412x
+step     : 150000 motes -- 10037.1 million a second on the card
+pipeline : 10 scene(s), each one a separate compiled object
+pipeline : cold   48579 us   filling   52567 us   cached   47207 us
+pipeline : 4858 us each cold, 4721 us each cached
+cache    : 31360 bytes, and this is what a game writes to disk
+record   : 4096 draws, push only            94.9 us    23.2 ns each
+record   : 4096 draws, rebinding sets      276.8 us    67.6 ns each
+record   : the bind costs 44.4 ns a draw, with NO layers on it
+memtype  : cube_vb in type 1, cube_ib in type 1
+camera   : nodust    at  +3.9 +2.2  +9.0  yaw +0.25 pitch -0.30  fwd -0.24 -0.30 -0.93
+inverse  : nodust    placement * view is 9.54e-07 from the identity
+camera   : dust      at  +3.9 +2.2  +9.0  yaw +0.25 pitch -0.30  fwd -0.24 -0.30 -0.93
+inverse  : dust      placement * view is 9.54e-07 from the identity
+camera   : many      at  +3.9 +2.2  +9.0  yaw +0.25 pitch -0.30  fwd -0.24 -0.30 -0.93
+inverse  : many      placement * view is 9.54e-07 from the identity
+camera   : few       at  +3.9 +2.2  +9.0  yaw +0.25 pitch -0.30  fwd -0.24 -0.30 -0.93
+inverse  : few       placement * view is 9.54e-07 from the identity
+camera   : big       at  +3.9 +2.2  +9.0  yaw +0.25 pitch -0.30  fwd -0.24 -0.30 -0.93
+inverse  : big       placement * view is 9.54e-07 from the identity
+camera   : beam      at  +1.8 -1.6 +13.0  yaw +0.12 pitch +0.30  fwd -0.11 +0.30 -0.95
+inverse  : beam      placement * view is 9.54e-07 from the identity
+camera   : swirl     at  +3.9 +2.2  +9.0  yaw +0.25 pitch -0.30  fwd -0.24 -0.30 -0.93
+inverse  : swirl     placement * view is 9.54e-07 from the identity
+camera   : fall      at  +3.9 +2.2  +9.0  yaw +0.25 pitch -0.30  fwd -0.24 -0.30 -0.93
+inverse  : fall      placement * view is 9.54e-07 from the identity
+camera   : late      at  +3.9 +2.2  +9.0  yaw +0.25 pitch -0.30  fwd -0.24 -0.30 -0.93
+inverse  : late      placement * view is 9.54e-07 from the identity
+camera   : hot       at  +3.9 +2.2  +9.0  yaw +0.25 pitch -0.30  fwd -0.24 -0.30 -0.93
+inverse  : hot       placement * view is 9.54e-07 from the identity
+surface  : queue family 0 CAN present to this window
+surface  : 2 to 8 image(s), current 1280x720
+surface  : 5 format(s) offered
+present  : 5 mode(s) on this surface
+  FIFO        a queue, and the only one
+  FIFO_RELAXED  tear only if late
+  MAILBOX     replace the queued frame
+  IMMEDIATE   tear, never wait
+  other
+swapchain: 3 image(s) of 1280x720, FIFO, and you do not own them
+window   : created, never shown -- the capture opens no screen
+wrote  : nodust         0 motes    0 steps     0 groups  the buffer is never touched
+wrote  : dust       30000 motes   30 steps   938 groups  thirty thousand motes
+wrote  : many      150000 motes   30 steps  4688 groups  five times as many
+wrote  : few         6000 motes   30 steps   188 groups  fewer points, larger
+wrote  : big        30000 motes   30 steps   938 groups  gl_PointSize is in pixels
+wrote  : beam       60000 motes    8 steps  1875 groups  seeded in a cone
+wrote  : swirl      30000 motes   30 steps   938 groups  a tangential velocity
+wrote  : fall       30000 motes   30 steps   938 groups  gravity, and a floor
+wrote  : late       30000 motes  140 steps   938 groups  a hundred and forty steps
+wrote  : hot        30000 motes   30 steps   938 groups  over 1.0, and bloom finds it
+compare: dust      vs nodust      6.33% of pixels differ
+compare: many      vs dust       23.87% of pixels differ
+compare: few       vs dust       12.75% of pixels differ
+compare: big       vs dust       49.71% of pixels differ
+compare: swirl     vs dust       12.39% of pixels differ
+compare: fall      vs dust       12.57% of pixels differ
+compare: late      vs swirl      12.28% of pixels differ
+compare: hot       vs dust       76.34% of pixels differ
+provoke  : submitting a command buffer that was never recorded
+  vk ERROR  vkQueueSubmit2():
+           pSubmits[0].pCommandBufferInfos[0].commandBuffer
+           VkCommandBuffer 0x25a7a3517e0 is unrecorded and contains no
+           commands.
+           The Vulkan spec states: The commandBuffer member of any element
+           of the pCommandBufferInfos member of any element of pSubmits
+           must be in the pending or executable state
+           (https://docs.vulkan.org/spec/latest/chapters/cmdbuffers.html#V
+           ID-vkQueueSubmit2-commandBuffer-03874)
+provoke  : vkQueueSubmit2 returned 0, and the layer said the rest
+wic      : asked for RGBA and was given BGRA
+debug    : 1 message(s) from the validation layer this run
+done     : 10 picture(s), no window opened
+
+--- compare_dust.exe --------------------------------------------------
+compare: dust      vs nodust      6.33% of pixels differ
+
+--- compare_hot.exe ---------------------------------------------------
+compare: hot       vs dust       76.34% of pixels differ
+
+--- compare_many.exe --------------------------------------------------
+compare: many      vs dust       23.87% of pixels differ
+compare: few       vs dust       12.75% of pixels differ
+compare: big       vs dust       49.71% of pixels differ
+compare: swirl     vs dust       12.39% of pixels differ
+compare: fall      vs dust       12.57% of pixels differ
+compare: late      vs swirl      12.28% of pixels differ

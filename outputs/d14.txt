@@ -1,0 +1,131 @@
+loader   : instance version 1.4.321
+layers   : 11 available, validation is PRESENT
+instance : created, asking for Vulkan 1.4, validation on
+devices  : 1
+  NVIDIA GeForce RTX 4070            discrete   api 1.4.325
+gpu      : NVIDIA GeForce RTX 4070
+queues   : 6 family(ies) on this card
+  family 0  16 queue(s)  graphics compute transfer sparse
+  family 1   2 queue(s)  transfer sparse
+  family 2   8 queue(s)  compute transfer sparse
+  family 3   1 queue(s)  transfer sparse
+  family 4   1 queue(s)  transfer sparse
+  family 5   1 queue(s)  transfer sparse
+device   : queue family 0, dynamic rendering and sync2 enabled
+dispatch : 59 device-level entry point(s) from the registry, 0 missing
+spirv    : 520 and 1451 words, compiled at BUILD time
+push     : 88 bytes of range, 256 available, 128 guaranteed anywhere
+memory   : 5 type(s) in 3 heap(s)
+  heap 0   12011 MB  device local
+  heap 1   16304 MB  host
+  heap 2     214 MB  device local
+  type  0 heap 1  
+  type  1 heap 0  DEVICE_LOCAL 
+  type  2 heap 1  HOST_VISIBLE HOST_COHERENT 
+  type  3 heap 1  HOST_VISIBLE HOST_COHERENT HOST_CACHED
+  type  4 heap 2  DEVICE_LOCAL HOST_VISIBLE HOST_COHERENT 
+vertex   : 44 bytes -- position, colour, uv, and a normal
+mesh     : 8920 vertices, 49176 indices, 16392 triangles, 9 parts
+mesh     : 589184 bytes in ONE vertex buffer and ONE index buffer
+mesh     : staged in 4845 us
+  globe     first      0  count  18432  vertexOffset      0  material 2
+  equator   first  18432  count   5760  vertexOffset   3185  material 5
+  colure    first  24192  count   5760  vertexOffset   4252  material 1
+  tropic    first  29952  count   5760  vertexOffset   5319  material 7
+  axis      first  35712  count    144  vertexOffset   6386  material 5
+  horizon   first  35856  count   9216  vertexOffset   6436  material 4
+  column    first  45072  count    120  vertexOffset   8113  material 4
+  plinth    first  45192  count    144  vertexOffset   8155  material 6
+  rim       first  45336  count   3840  vertexOffset   8205  material 4
+texture  : 8 materials of 256x256, 9 level(s), 489 us each
+limits   : 32 bound sets, 1048576 sampled images a stage, UB align 64
+sets     : set 0 is a camera UBO and a lights SSBO; set 1 is 8 images
+storage  : 16 byte alignment, 4294967295 bytes addressable in one binding
+lamp     : 32 bytes each in std430, 64 maximum, 2064 byte buffer
+shadow   : 2048x2048 D32_SFLOAT, 16777216 bytes, comparison sampler
+shadow   : one vertex shader, no fragment shader, no colour attachment
+pipeline : 10 scene(s), each one a separate compiled object
+pipeline : cold   53061 us   filling   59725 us   cached   21930 us
+pipeline : 5306 us each cold, 2193 us each cached
+cache    : 114809 bytes, and this is what a game writes to disk
+record   : 4096 draws, push only           145.5 us    35.5 ns each
+record   : 4096 draws, rebinding sets      254.3 us    62.1 ns each
+record   : the bind costs 26.6 ns a draw, with NO layers on it
+memtype  : cube_vb in type 1, cube_ib in type 1
+camera   : noshadow  at  +3.9 +0.5  +6.0  yaw +0.00 pitch -0.42  fwd -0.00 -0.41 -0.91
+inverse  : noshadow  placement * view is 4.77e-07 from the identity
+camera   : shadow    at  +3.9 +0.5  +6.0  yaw +0.00 pitch -0.42  fwd -0.00 -0.41 -0.91
+inverse  : shadow    placement * view is 4.77e-07 from the identity
+camera   : acne      at  +3.9 +0.5  +6.0  yaw +0.00 pitch -0.42  fwd -0.00 -0.41 -0.91
+inverse  : acne      placement * view is 4.77e-07 from the identity
+camera   : peterpan  at  +3.9 +0.5  +6.0  yaw +0.00 pitch -0.42  fwd -0.00 -0.41 -0.91
+inverse  : peterpan  placement * view is 4.77e-07 from the identity
+camera   : onetap    at  +3.9 +0.5  +6.0  yaw +0.00 pitch -0.42  fwd -0.00 -0.41 -0.91
+inverse  : onetap    placement * view is 4.77e-07 from the identity
+camera   : low       at  +3.9 +0.5  +6.0  yaw +0.00 pitch -0.42  fwd -0.00 -0.41 -0.91
+inverse  : low       placement * view is 4.77e-07 from the identity
+camera   : wide      at  +3.9 +0.5  +6.0  yaw +0.00 pitch -0.42  fwd -0.00 -0.41 -0.91
+inverse  : wide      placement * view is 4.77e-07 from the identity
+camera   : map       at  +3.9 +0.5  +6.0  yaw +0.00 pitch -0.42  fwd -0.00 -0.41 -0.91
+inverse  : map       placement * view is 4.77e-07 from the identity
+camera   : frontcull at  +3.9 +0.5  +6.0  yaw +0.00 pitch -0.42  fwd -0.00 -0.41 -0.91
+inverse  : frontcull placement * view is 4.77e-07 from the identity
+camera   : close     at  +3.9 -3.4  -3.0  yaw +0.00 pitch -0.20  fwd -0.00 -0.20 -0.98
+inverse  : close     placement * view is 0.00e+00 from the identity
+surface  : queue family 0 CAN present to this window
+surface  : 2 to 8 image(s), current 1280x720
+surface  : 5 format(s) offered
+present  : 5 mode(s) on this surface
+  FIFO        a queue, and the only one
+  FIFO_RELAXED  tear only if late
+  MAILBOX     replace the queued frame
+  IMMEDIATE   tear, never wait
+  other
+swapchain: 3 image(s) of 1280x720, FIFO, and you do not own them
+window   : created, never shown -- the capture opens no screen
+wrote  : noshadow  map 2048  1 texel = 0.0127 units  no shadow pass: the floor under it is lit
+wrote  : shadow    map 2048  1 texel = 0.0127 units  2048 map, slope-scaled bias, a 3x3 kernel
+wrote  : acne      map 2048  1 texel = 0.0127 units  bias 0: the surface shadows itself
+wrote  : peterpan  map 2048  1 texel = 0.0127 units  bias 0.04: the shadow walks away
+wrote  : onetap    map 2048  1 texel = 0.0127 units  one comparison: a hard, aliased edge
+shadow   : rebuilt at 256x256 -- 262144 bytes, 1 texel is 0.1016 units
+wrote  : low       map  256  1 texel = 0.1016 units  a 256 map: 64 times fewer texels
+shadow   : rebuilt at 2048x2048 -- 16777216 bytes, 1 texel is 0.0332 units
+wrote  : wide      map 2048  1 texel = 0.0332 units  the same map stretched over 34 units
+wrote  : map       map 2048  1 texel = 0.0127 units  the depth buffer the light recorded
+wrote  : frontcull map 2048  1 texel = 0.0127 units  bias 0 again, but culling FRONT faces
+wrote  : close     map 2048  1 texel = 0.0127 units  standing in it, where the edge is judged
+compare: noshadow  vs shadow      3.69% of pixels differ
+compare: acne      vs shadow      3.26% of pixels differ
+compare: peterpan  vs shadow      1.84% of pixels differ
+compare: onetap    vs shadow      1.33% of pixels differ
+compare: low       vs shadow      8.82% of pixels differ
+compare: wide      vs shadow      3.36% of pixels differ
+compare: map       vs shadow     84.65% of pixels differ
+compare: frontcull vs acne        9.97% of pixels differ
+provoke  : submitting a command buffer that was never recorded
+  vk ERROR  vkQueueSubmit2():
+           pSubmits[0].pCommandBufferInfos[0].commandBuffer
+           VkCommandBuffer 0x238f5129840 is unrecorded and contains no
+           commands.
+           The Vulkan spec states: The commandBuffer member of any element
+           of the pCommandBufferInfos member of any element of pSubmits
+           must be in the pending or executable state
+           (https://docs.vulkan.org/spec/latest/chapters/cmdbuffers.html#V
+           ID-vkQueueSubmit2-commandBuffer-03874)
+provoke  : vkQueueSubmit2 returned 0, and the layer said the rest
+wic      : asked for RGBA and was given BGRA
+debug    : 1 message(s) from the validation layer this run
+done     : 10 picture(s), no window opened
+
+--- compare_acne.exe --------------------------------------------------
+compare: acne      vs shadow      3.26% of pixels differ
+
+--- compare_map.exe ---------------------------------------------------
+compare: map       vs shadow     84.65% of pixels differ
+
+--- compare_noshadow.exe ----------------------------------------------
+compare: noshadow  vs shadow      3.69% of pixels differ
+
+--- compare_peterpan.exe ----------------------------------------------
+compare: peterpan  vs shadow      1.84% of pixels differ

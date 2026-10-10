@@ -1,0 +1,103 @@
+#version 460
+// THE FIRST SHADER IN THIS BOOK THAT DRAWS NOTHING.
+//
+// A compute shader has no vertices, no fragments, no rasterizer and no attachment. It has a
+// grid of invocations and a buffer, and everything else about it -- the barriers, the
+// descriptors, the pipeline -- is the same machinery the last seventeen days built.
+
+// THE WORKGROUP SIZE IS A SPECIALIZATION CONSTANT, which is the one place in GLSL where a
+// constant changes the SHAPE of the program rather than a number inside it. The default is 64;
+// the benchmark builds this shader five times with five different values and times each.
+layout(local_size_x_id = 0, local_size_x = 64) in;
+
+// TWO vec4s, EXACTLY AS THE LAMPS ARE. std430 aligns a vec3 to sixteen bytes and pads it to
+// sixteen, so a struct of two vec3s and two floats costs the same as this and reads worse.
+struct Mote {
+    vec4 pos_size;      // xyz world position, w a per-mote size multiplier
+    vec4 rgb_life;      // rgb colour, w how bright this one is
+};
+
+// A STORAGE BUFFER, NOT A UNIFORM BUFFER. A uniform buffer is read-only and capped at 64 KB on
+// the guarantee; a storage buffer is read-WRITE and capped at something far larger. This one
+// is megabytes, and the shader writes to it.
+layout(std430, set = 0, binding = 0) buffer Motes {
+    Mote m[];
+} motes;
+
+// PUSH CONSTANTS REACH COMPUTE TOO. The stage flag says VK_SHADER_STAGE_COMPUTE_BIT and
+// everything else about the block is what Day 4 set up.
+layout(push_constant) uniform Push {
+    int   count;
+    int   motion;       // 0 drift, 1 swirl, 2 fall
+    int   shape;        // 0 a box round the Meridian, 1 the beam under the lamp
+    int   reset;        // 1 seed the buffer, 0 advance it one step
+    float dt;
+    float pad0, pad1, pad2;
+} pc;
+
+// A HASH, BECAUSE THERE IS NO rand() ON A GPU. Every invocation needs its own numbers and the
+// only thing it has that nobody else has is its index. This is a standard integer mix -- three
+// shifts and two multiplies -- and it turns consecutive indices into scattered bits.
+uint hash(uint x) {
+    x ^= x >> 16; x *= 0x7feb352du;
+    x ^= x >> 15; x *= 0x846ca68bu;
+    x ^= x >> 16;
+    return x;
+}
+float rnd(uint x) { return float(hash(x) & 0xffffffu) / 16777216.0; }
+
+void main() {
+    // THE GUARD IS NOT OPTIONAL. A dispatch launches whole workgroups, so 30,000 motes at 64 a
+    // group launches 30,016 invocations -- and the last sixteen would write past the end of
+    // the buffer. Every compute shader ever written begins with this line.
+    uint i = gl_GlobalInvocationID.x;
+    if (i >= uint(pc.count)) return;
+
+    if (pc.reset == 1) {
+        const float TAU = 6.28318530718;
+        float a = rnd(i * 3u + 0u);
+        float b = rnd(i * 3u + 1u);
+        float d = rnd(i * 3u + 2u);
+        vec3 p;
+        if (pc.shape == 1) {
+            // A CONE UNDER THE TOP LAMP. The lamp is at (0, 9.5, 0), the floor is at -6, and
+            // the beam widens on the way down -- which is the whole of what a shaft of light
+            // through dust looks like.
+            float h  = d;
+            float r  = 0.30 + h * 4.60;
+            float th = a * TAU;
+            float rr = sqrt(b) * r;         // sqrt, or every mote crowds the axis
+            p = vec3(rr * cos(th), 9.5 - h * 15.4, rr * sin(th));
+        } else {
+            p = vec3((a - 0.5) * 27.0, -5.6 + b * 14.0, (d - 0.5) * 27.0);
+        }
+        float warm = rnd(i * 3u + 7u);
+        motes.m[i].pos_size = vec4(p, 0.55 + rnd(i * 5u + 1u) * 0.85);
+        motes.m[i].rgb_life = vec4(mix(vec3(0.62, 0.74, 1.00), vec3(1.00, 0.86, 0.62), warm),
+                                   0.35 + rnd(i * 5u + 3u) * 0.65);
+        return;
+    }
+
+    // ONE DISPATCH IS ONE STEP. The buffer carries the state from the last one, which is why
+    // a scene that asks for more steps gets a genuinely different picture rather than the same
+    // arithmetic done twice.
+    vec3 p = motes.m[i].pos_size.xyz;
+    vec3 v;
+    if (pc.motion == 1) {
+        // SWIRL: a tangential velocity round the y axis, faster near the middle.
+        float r = max(length(p.xz), 0.6);
+        v = vec3(-p.z, 0.22, p.x) * (2.2 / r);
+    } else if (pc.motion == 2) {
+        // FALL: gravity, and a floor to land on.
+        v = vec3(0.30 * sin(p.y * 0.8 + float(i)), -2.4, 0.30 * cos(p.x * 0.7));
+        if (p.y <= -5.94) v = vec3(0.0);
+    } else {
+        // DRIFT: up, with a sideways wander that depends on where the mote already is.
+        v = vec3(0.55 * sin(p.y * 0.65 + float(i & 63u)), 0.85,
+                 0.55 * cos(p.x * 0.55 + float(i & 31u)));
+    }
+    p += v * pc.dt;
+    if (p.y > 9.6) p.y = -5.9;              // the ones that leave come back at the bottom
+    if (p.y < -5.94) p.y = -5.94;
+    motes.m[i].pos_size.xyz = p;
+}

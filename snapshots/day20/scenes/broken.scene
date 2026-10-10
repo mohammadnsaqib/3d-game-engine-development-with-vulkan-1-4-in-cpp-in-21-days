@@ -1,0 +1,14 @@
+# A FILE THAT IS WRONG ON PURPOSE.
+#
+# Nothing in it loads. It exists so that the capture contains what this loader says when a file
+# is bad -- five different complaints, each with a line number, and none of them the word
+# "error" on its own.
+
+meridian 2
+
+scene broken
+  camera    5.0 1.0
+  tonemap   filmic
+  dust      6000 spiral box 30 0.7 1.0
+  material  globe bronze
+  wobble    3

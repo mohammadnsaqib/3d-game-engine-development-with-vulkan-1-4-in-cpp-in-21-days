@@ -1,0 +1,100 @@
+loader   : instance version 1.4.321
+layers   : 11 available, validation is PRESENT
+instance : created, asking for Vulkan 1.4, validation on
+devices  : 1
+  NVIDIA GeForce RTX 4070            discrete   api 1.4.325
+gpu      : NVIDIA GeForce RTX 4070
+queues   : 6 family(ies) on this card
+  family 0  16 queue(s)  graphics compute transfer sparse
+  family 1   2 queue(s)  transfer sparse
+  family 2   8 queue(s)  compute transfer sparse
+  family 3   1 queue(s)  transfer sparse
+  family 4   1 queue(s)  transfer sparse
+  family 5   1 queue(s)  transfer sparse
+device   : queue family 0, dynamic rendering and sync2 enabled
+dispatch : 59 device-level entry point(s) from the registry, 0 missing
+spirv    : 239 and 112 words, compiled at BUILD time
+push     : 64 bytes of range, 256 available, 128 guaranteed anywhere
+memory   : 5 type(s) in 3 heap(s)
+  heap 0   12011 MB  device local
+  heap 1   16304 MB  host
+  heap 2     214 MB  device local
+  type  0 heap 1  
+  type  1 heap 0  DEVICE_LOCAL 
+  type  2 heap 1  HOST_VISIBLE HOST_COHERENT 
+  type  3 heap 1  HOST_VISIBLE HOST_COHERENT HOST_CACHED
+  type  4 heap 2  DEVICE_LOCAL HOST_VISIBLE HOST_COHERENT 
+mesh     : 24 vertices (576 bytes), 36 indices, 6 faces
+upload   : both buffers staged in 5875.7 us
+pipeline : 10 scene(s), each one a separate compiled object
+pipeline : cold   10547 us   filling   12612 us   cached    3777 us
+pipeline : 1055 us each cold, 378 us each cached
+cache    : 20487 bytes, and this is what a game writes to disk
+memtype  : cube_vb in type 1, cube_ib in type 1
+matrix   : mvp[10] near 0.1 -0.743887, near 12.6 -0.850278
+depth    : D32_SFLOAT, required everywhere; D24_UNORM_S8 is NOT
+inflight : 240 frames of 640x360, 125 cubes each
+inflight : N=1    211627 us total   881.8 us/frame    1134 frames/s
+inflight : N=2    196136 us total   817.2 us/frame    1224 frames/s
+inflight : N=3    190844 us total   795.2 us/frame    1258 frames/s
+surface  : queue family 0 CAN present to this window
+surface  : 2 to 8 image(s), current 1280x720
+surface  : 5 format(s) offered
+present  : 5 mode(s) on this surface
+  FIFO        a queue, and the only one
+  FIFO_RELAXED  tear only if late
+  MAILBOX     replace the queued frame
+  IMMEDIATE   tear, never wait
+  other
+swapchain: 3 image(s) of 1280x720, FIFO, and you do not own them
+window   : created, never shown -- the capture opens no screen
+wrote  : depth      27 draw(s)  27 cubes, and one attachment settles it
+wrote  : nodepth    27 draw(s)  the same 27, drawn front to back, no test
+wrote  : greater     2 draw(s)  GREATER, cleared to 0: the far surfaces win
+wrote  : dense     125 draw(s)  125 cubes, 125 push constants
+wrote  : interpen    2 draw(s)  two cubes through each other, depth on
+wrote  : unsorted    2 draw(s)  the same two, no test, nearest drawn first
+wrote  : sorted      2 draw(s)  sorted back to front, and STILL wrong
+wrote  : nearclip   27 draw(s)  near plane at 12.6: the front rank is cut
+wrote  : precision 125 draw(s)  D16_UNORM, near 0.00015: under one bit apart
+wrote  : ortho     125 draw(s)  125 cubes, no perspective divide, depth on
+compare: nodepth   vs depth      14.60% of pixels differ
+compare: greater   vs interpen    7.17% of pixels differ
+compare: dense     vs depth      33.92% of pixels differ
+compare: nearclip  vs depth      28.33% of pixels differ
+compare: precision vs dense       1.48% of pixels differ
+compare: ortho     vs dense      39.45% of pixels differ
+compare: unsorted  vs interpen    5.81% of pixels differ
+compare: sorted    vs interpen    1.36% of pixels differ
+compare: sorted    vs unsorted    7.17% of pixels differ
+provoke  : submitting a command buffer that was never recorded
+  vk ERROR  vkQueueSubmit2():
+           pSubmits[0].pCommandBufferInfos[0].commandBuffer
+           VkCommandBuffer 0x20cc84f8de0 is unrecorded and contains no
+           commands.
+           The Vulkan spec states: The commandBuffer member of any element
+           of the pCommandBufferInfos member of any element of pSubmits
+           must be in the pending or executable state
+           (https://docs.vulkan.org/spec/latest/chapters/cmdbuffers.html#V
+           ID-vkQueueSubmit2-commandBuffer-03874)
+provoke  : vkQueueSubmit2 returned 0, and the layer said the rest
+wic      : asked for RGBA and was given BGRA
+debug    : 1 message(s) from the validation layer this run
+done     : 10 picture(s), no window opened
+
+--- compare_dense.exe -------------------------------------------------
+compare: dense     vs depth      33.92% of pixels differ
+
+--- compare_nearclip.exe ----------------------------------------------
+compare: nearclip  vs depth      28.33% of pixels differ
+
+--- compare_nodepth.exe -----------------------------------------------
+compare: nodepth   vs depth      14.60% of pixels differ
+
+--- compare_precision.exe ---------------------------------------------
+compare: precision vs dense       1.48% of pixels differ
+
+--- compare_unsorted.exe ----------------------------------------------
+compare: unsorted  vs interpen    5.81% of pixels differ
+compare: sorted    vs interpen    1.36% of pixels differ
+compare: sorted    vs unsorted    7.17% of pixels differ

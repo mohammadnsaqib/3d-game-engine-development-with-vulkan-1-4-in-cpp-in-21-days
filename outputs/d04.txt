@@ -1,0 +1,79 @@
+loader   : instance version 1.4.321
+layers   : 11 available, validation is PRESENT
+instance : created, asking for Vulkan 1.4, validation on
+devices  : 1
+  NVIDIA GeForce RTX 4070            discrete   api 1.4.325
+gpu      : NVIDIA GeForce RTX 4070
+queues   : 6 family(ies) on this card
+  family 0  16 queue(s)  graphics compute transfer sparse
+  family 1   2 queue(s)  transfer sparse
+  family 2   8 queue(s)  compute transfer sparse
+  family 3   1 queue(s)  transfer sparse
+  family 4   1 queue(s)  transfer sparse
+  family 5   1 queue(s)  transfer sparse
+device   : queue family 0, dynamic rendering and sync2 enabled
+dispatch : 48 device-level entry point(s) from the registry, 0 missing
+spirv    : 232 and 108 words, compiled at BUILD time
+memory   : 5 type(s) in 3 heap(s)
+  heap 0   12011 MB  device local
+  heap 1   16304 MB  host
+  heap 2     214 MB  device local
+  type  0 heap 1  
+  type  1 heap 0  DEVICE_LOCAL 
+  type  2 heap 1  HOST_VISIBLE HOST_COHERENT 
+  type  3 heap 1  HOST_VISIBLE HOST_COHERENT HOST_CACHED
+  type  4 heap 2  DEVICE_LOCAL HOST_VISIBLE HOST_COHERENT 
+buffers  : ring 512 vertices (10240 bytes), 1536 indices, 512 chord indices
+memtype  : ring_vb in type 1, wobble_vb in type 2
+upload   : staged 721.4 us, mapped write 6.1 us, same 10240 bytes
+surface  : queue family 0 CAN present to this window
+surface  : 2 to 8 image(s), current 1280x720
+surface  : 5 format(s) offered
+present  : 5 mode(s) on this surface
+  FIFO        a queue, and the only one
+  FIFO_RELAXED  tear only if late
+  MAILBOX     replace the queued frame
+  IMMEDIATE   tear, never wait
+  other
+swapchain: 3 image(s) of 1280x720, FIFO, and you do not own them
+window   : created, never shown -- the capture opens no screen
+wrote  : triangle        3 verts   three vertices, straight out of a buffer
+wrote  : quad            6 indices four vertices, six indices, one shared edge
+wrote  : ring         1536 indices 512 vertices, 1536 indices, staged
+wrote  : halfdraw      768 indices the same buffers, half the index count
+wrote  : offsetdraw    768 indices the same buffers, firstIndex at the middle
+wrote  : chords        512 indices one vertex buffer, a DIFFERENT index buffer
+wrote  : points        512 verts   the same vertices, no index buffer at all
+wrote  : twostreams   1536 indices positions and colours in two bindings
+wrote  : badstride    1536 indices the stride wrong by four bytes
+wrote  : wobble       1536 indices a host-visible buffer the CPU wrote directly
+compare: halfdraw    vs ring       13.21% of pixels differ
+compare: offsetdraw  vs halfdraw   26.41% of pixels differ
+compare: twostreams  vs ring       26.41% of pixels differ
+compare: badstride   vs ring       41.27% of pixels differ
+compare: wobble      vs ring       31.22% of pixels differ
+compare: points      vs ring       27.22% of pixels differ
+provoke  : submitting a command buffer that was never recorded
+  vk ERROR  vkQueueSubmit2():
+           pSubmits[0].pCommandBufferInfos[0].commandBuffer
+           VkCommandBuffer 0x233dc7c35a0 is unrecorded and contains no
+           commands.
+           The Vulkan spec states: The commandBuffer member of any element
+           of the pCommandBufferInfos member of any element of pSubmits
+           must be in the pending or executable state
+           (https://docs.vulkan.org/spec/latest/chapters/cmdbuffers.html#V
+           ID-vkQueueSubmit2-commandBuffer-03874)
+provoke  : vkQueueSubmit2 returned 0, and the layer said the rest
+wic      : asked for RGBA and was given BGRA
+debug    : 1 message(s) from the validation layer this run
+done     : 10 picture(s), no window opened
+
+--- compare_badstride.exe ---------------------------------------------
+compare: badstride   vs ring       41.27% of pixels differ
+
+--- compare_halfdraw.exe ----------------------------------------------
+compare: halfdraw    vs ring       13.21% of pixels differ
+compare: offsetdraw  vs halfdraw   26.41% of pixels differ
+
+--- compare_points.exe ------------------------------------------------
+compare: points      vs ring       27.22% of pixels differ

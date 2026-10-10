@@ -1,0 +1,70 @@
+loader   : instance version 1.4.321
+layers   : 11 available, validation is PRESENT
+instance : created, asking for Vulkan 1.4, validation on
+devices  : 1
+  NVIDIA GeForce RTX 4070            discrete   api 1.4.325
+gpu      : NVIDIA GeForce RTX 4070
+queues   : 6 family(ies) on this card
+  family 0  16 queue(s)  graphics compute transfer sparse
+  family 1   2 queue(s)  transfer sparse
+  family 2   8 queue(s)  compute transfer sparse
+  family 3   1 queue(s)  transfer sparse
+  family 4   1 queue(s)  transfer sparse
+  family 5   1 queue(s)  transfer sparse
+device   : queue family 0, dynamic rendering and sync2 enabled
+dispatch : 48 device-level entry point(s) from the registry, 0 missing
+spirv    : 697 and 108 words, compiled at BUILD time
+memory   : 5 type(s) in 3 heap(s)
+  heap 0   12011 MB  device local
+  heap 1   16304 MB  host
+  heap 2     214 MB  device local
+surface  : queue family 0 CAN present to this window
+surface  : 2 to 8 image(s), current 1280x720
+surface  : 5 format(s) offered
+present  : 5 mode(s) on this surface
+  FIFO        a queue, and the only one
+  FIFO_RELAXED  tear only if late
+  MAILBOX     replace the queued frame
+  IMMEDIATE   tear, never wait
+  other
+swapchain: 3 image(s) of 1280x720, FIFO, and you do not own them
+window   : created, never shown -- the capture opens no screen
+wrote  : direct      1920x1080 -> 1920x1080  no resize: one pixel to one pixel
+wrote  : half         960x540  -> 1920x1080  half size, magnified smoothly
+wrote  : nearest      960x540  -> 1920x1080  half size, magnified blockily
+wrote  : quarter      480x270  -> 1920x1080  a quarter of the width, four times up
+wrote  : eighth       240x135  -> 1920x1080  an eighth: the pixels ARE the picture
+wrote  : supersample 3840x2160 -> 1920x1080  twice the size, shrunk back down
+wrote  : letterbox   1920x1080 -> 1440x1080  a 4:3 window, shape kept
+wrote  : stretched   1920x1080 -> 1440x1080  a 4:3 window, shape given up
+wrote  : flipped     1920x1080 -> 1920x1080  the destination's y values swapped
+wrote  : tall        1920x1080 ->  810x1080  a narrow window: bars at the sides
+compare: half        vs direct   11.35% of pixels differ
+compare: nearest     vs half      5.03% of pixels differ
+compare: quarter     vs direct   14.47% of pixels differ
+compare: supersample vs direct    4.03% of pixels differ
+compare: flipped     vs direct   32.65% of pixels differ
+provoke  : submitting a command buffer that was never recorded
+  vk ERROR  vkQueueSubmit2():
+           pSubmits[0].pCommandBufferInfos[0].commandBuffer
+           VkCommandBuffer 0x1b6978b90a0 is unrecorded and contains no
+           commands.
+           The Vulkan spec states: The commandBuffer member of any element
+           of the pCommandBufferInfos member of any element of pSubmits
+           must be in the pending or executable state
+           (https://docs.vulkan.org/spec/latest/chapters/cmdbuffers.html#V
+           ID-vkQueueSubmit2-commandBuffer-03874)
+provoke  : vkQueueSubmit2 returned 0, and the layer said the rest
+wic      : asked for RGBA and was given BGRA
+debug    : 1 message(s) from the validation layer this run
+done     : 10 picture(s), no window opened
+
+--- compare_flipped.exe -----------------------------------------------
+compare: flipped     vs direct   32.65% of pixels differ
+
+--- compare_nearest.exe -----------------------------------------------
+compare: nearest     vs half      5.03% of pixels differ
+compare: quarter     vs direct   14.47% of pixels differ
+
+--- compare_supersample.exe -------------------------------------------
+compare: supersample vs direct    4.03% of pixels differ

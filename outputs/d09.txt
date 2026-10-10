@@ -1,0 +1,88 @@
+loader   : instance version 1.4.321
+layers   : 11 available, validation is PRESENT
+instance : created, asking for Vulkan 1.4, validation on
+devices  : 1
+  NVIDIA GeForce RTX 4070            discrete   api 1.4.325
+gpu      : NVIDIA GeForce RTX 4070
+queues   : 6 family(ies) on this card
+  family 0  16 queue(s)  graphics compute transfer sparse
+  family 1   2 queue(s)  transfer sparse
+  family 2   8 queue(s)  compute transfer sparse
+  family 3   1 queue(s)  transfer sparse
+  family 4   1 queue(s)  transfer sparse
+  family 5   1 queue(s)  transfer sparse
+device   : queue family 0, dynamic rendering and sync2 enabled
+dispatch : 59 device-level entry point(s) from the registry, 0 missing
+spirv    : 415 and 242 words, compiled at BUILD time
+push     : 84 bytes of range, 256 available, 128 guaranteed anywhere
+memory   : 5 type(s) in 3 heap(s)
+  heap 0   12011 MB  device local
+  heap 1   16304 MB  host
+  heap 2     214 MB  device local
+  type  0 heap 1  
+  type  1 heap 0  DEVICE_LOCAL 
+  type  2 heap 1  HOST_VISIBLE HOST_COHERENT 
+  type  3 heap 1  HOST_VISIBLE HOST_COHERENT HOST_CACHED
+  type  4 heap 2  DEVICE_LOCAL HOST_VISIBLE HOST_COHERENT 
+mesh     : cube 36 indices, plane 6 indices, 32 bytes a vertex
+texture  : 8 materials of 256x256, 9 level(s), 705 us each
+limits   : 32 bound sets, 1048576 sampled images a stage, UB align 64
+sets     : set 0 is one uniform buffer, set 1 is 8 images in one binding
+pipeline : 10 scene(s), each one a separate compiled object
+pipeline : cold    5897 us   filling    8943 us   cached    4964 us
+pipeline : 590 us each cold, 496 us each cached
+cache    : 16162 bytes, and this is what a game writes to disk
+record   : 4096 draws, push only           202.5 us    49.4 ns each
+record   : 4096 draws, rebinding sets      580.4 us   141.7 ns each
+record   : the bind costs 92.3 ns a draw, with NO layers on it
+memtype  : cube_vb in type 1, cube_ib in type 1
+matrix   : viewProj[10] -0.896501, in a uniform buffer now
+surface  : queue family 0 CAN present to this window
+surface  : 2 to 8 image(s), current 1280x720
+surface  : 5 format(s) offered
+present  : 5 mode(s) on this surface
+  FIFO        a queue, and the only one
+  FIFO_RELAXED  tear only if late
+  MAILBOX     replace the queued frame
+  IMMEDIATE   tear, never wait
+  other
+swapchain: 3 image(s) of 1280x720, FIFO, and you do not own them
+window   : created, never shown -- the capture opens no screen
+wrote  : single      65 draw(s)  64 cubes, one material, one bind
+wrote  : eight       65 draw(s)  64 cubes, eight materials, one bind
+wrote  : checker     65 draw(s)  the index is a function of position
+wrote  : rows        65 draw(s)  one material a row, which reads as bands
+wrote  : hashed      65 draw(s)  a hash, which is what a real scene looks like
+wrote  : ring        65 draw(s)  the index by distance from the middle
+wrote  : tinted      65 draw(s)  the same, times a per-object tint
+wrote  : spun        65 draw(s)  a per-object rotation out of the push block
+wrote  : crowd      257 draw(s)  256 cubes, 256 pushes, still one bind
+wrote  : near        65 draw(s)  the same 64, from inside the crowd
+compare: eight     vs single     34.15% of pixels differ
+compare: checker   vs eight      32.39% of pixels differ
+compare: rows      vs eight      34.00% of pixels differ
+compare: hashed    vs eight      31.93% of pixels differ
+compare: ring      vs eight      36.80% of pixels differ
+compare: tinted    vs eight      38.87% of pixels differ
+compare: spun      vs eight      39.99% of pixels differ
+compare: near      vs tinted     82.70% of pixels differ
+provoke  : submitting a command buffer that was never recorded
+  vk ERROR  vkQueueSubmit2():
+           pSubmits[0].pCommandBufferInfos[0].commandBuffer
+           VkCommandBuffer 0x1af6283db50 is unrecorded and contains no
+           commands.
+           The Vulkan spec states: The commandBuffer member of any element
+           of the pCommandBufferInfos member of any element of pSubmits
+           must be in the pending or executable state
+           (https://docs.vulkan.org/spec/latest/chapters/cmdbuffers.html#V
+           ID-vkQueueSubmit2-commandBuffer-03874)
+provoke  : vkQueueSubmit2 returned 0, and the layer said the rest
+wic      : asked for RGBA and was given BGRA
+debug    : 1 message(s) from the validation layer this run
+done     : 10 picture(s), no window opened
+
+--- compare_near.exe --------------------------------------------------
+compare: near      vs tinted     82.70% of pixels differ
+
+--- compare_spun.exe --------------------------------------------------
+compare: spun      vs eight      39.99% of pixels differ

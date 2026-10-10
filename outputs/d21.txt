@@ -1,0 +1,180 @@
+loader   : instance version 1.4.321
+layers   : 11 available, validation is PRESENT
+instance : created, asking for Vulkan 1.4, validation OFF
+devices  : 1
+  NVIDIA GeForce RTX 4070            discrete   api 1.4.325
+gpu      : NVIDIA GeForce RTX 4070
+queues   : 6 family(ies) on this card
+  family 0  16 queue(s)  graphics compute transfer sparse
+  family 1   2 queue(s)  transfer sparse
+  family 2   8 queue(s)  compute transfer sparse
+  family 3   1 queue(s)  transfer sparse
+  family 4   1 queue(s)  transfer sparse
+  family 5   1 queue(s)  transfer sparse
+device   : queue family 0, dynamic rendering and sync2 enabled
+dispatch : 61 device-level entry point(s) from the registry, 0 missing
+spirv    : 553 and 3194 words, compiled at BUILD time
+push     : 96 bytes of range, 256 available, 128 guaranteed anywhere
+ship     : meridian.exe is 460288 bytes, statically linked
+  needs vulkan-1.dll
+  needs USER32.dll
+  needs ole32.dll
+  needs KERNEL32.dll
+imports  : 4 DLL(s), and nothing here came from the Vulkan SDK
+  meridian.exe             NOT from Windows
+loaded   : 56 module(s), 1 of them outside Windows
+memory   : 5 type(s) in 3 heap(s)
+  heap 0   12011 MB  device local
+  heap 1   16304 MB  host
+  heap 2     214 MB  device local
+  type  0 heap 1  
+  type  1 heap 0  DEVICE_LOCAL 
+  type  2 heap 1  HOST_VISIBLE HOST_COHERENT 
+  type  3 heap 1  HOST_VISIBLE HOST_COHERENT HOST_CACHED
+  type  4 heap 2  DEVICE_LOCAL HOST_VISIBLE HOST_COHERENT 
+resolve  : blaze    globe    -> copper    index 4
+resolve  : close    globe    -> verdigris index 6
+scene    : scenes/gallery.scene   version 2, 10 scene(s)
+scene    : 1 file(s), 10 scene(s), 0 warning(s), 0 unknown key(s)
+  opening aces     exp 1.00    8000 mote(s)  14000 star(s)  day 21, and nothing from the SDK
+  night   aces     exp 0.45    3000 mote(s)   5000 star(s)  stopped down, and thinner
+  blaze   aces     exp 1.00    9000 mote(s)  14000 star(s)  everything the HDR buffer can hold
+  beam    aces     exp 1.00   60000 mote(s)   4000 star(s)  day 18, from a file
+  close   aces     exp 1.00   14000 mote(s)   6000 star(s)  the instrument, at arm's length
+  swarm   aces     exp 1.00    4000 mote(s)  40000 star(s)  day 19, at four times the count
+  orbit   aces     exp 1.00    8000 mote(s)  14000 star(s)  the far side of the observatory
+  ground  aces     exp 1.10   10000 mote(s)  10000 star(s)  almost level with the floor
+  above   aces     exp 1.00    8000 mote(s)  14000 star(s)  looking down at the shadow
+  quiet   reinhard exp 1.00       0 mote(s)      0 star(s)  the instrument, on its own
+vertex   : 44 bytes -- position, colour, uv, and a normal
+mesh     : 8920 vertices, 49176 indices, 16392 triangles, 9 parts
+mesh     : 589184 bytes in ONE vertex buffer and ONE index buffer
+mesh     : staged in 3088 us
+  globe     first      0  count  18432  vertexOffset      0  material 2
+  equator   first  18432  count   5760  vertexOffset   3185  material 5
+  colure    first  24192  count   5760  vertexOffset   4252  material 1
+  tropic    first  29952  count   5760  vertexOffset   5319  material 7
+  axis      first  35712  count    144  vertexOffset   6386  material 5
+  horizon   first  35856  count   9216  vertexOffset   6436  material 4
+  column    first  45072  count    120  vertexOffset   8113  material 4
+  plinth    first  45192  count    144  vertexOffset   8155  material 6
+  rim       first  45336  count   3840  vertexOffset   8205  material 4
+texture  : 8 materials of 256x256, 9 level(s), 389 us each
+limits   : 32 bound sets, 1048576 sampled images a stage, UB align 64
+sets     : set 0 is a camera UBO and a lights SSBO; set 1 is 8 images
+storage  : 16 byte alignment, 4294967295 bytes addressable in one binding
+lamp     : 32 bytes each in std430, 64 maximum, 2064 byte buffer
+surface  : 2 floats a part -- roughness and metalness, in the push block
+  globe     roughness 0.55  metalness 0
+  equator   roughness 0.18  metalness 1
+  colure    roughness 0.22  metalness 1
+  tropic    roughness 0.30  metalness 1
+  axis      roughness 0.12  metalness 1
+  horizon   roughness 0.35  metalness 1
+  column    roughness 0.60  metalness 0
+  plinth    roughness 0.75  metalness 0
+  rim       roughness 0.28  metalness 1
+shadow   : 2048x2048 D32_SFLOAT, 16777216 bytes, comparison sampler
+shadow   : one vertex shader, no fragment shader, no colour attachment
+hdr      : R16G16B16A16_SFLOAT, 8 bytes a pixel, 15.8 MB at 1920x1080
+bloom    : two 960x540 buffers, a quarter of the pixels each
+frame    : 5 passes -- dispatch, shadow, scene, bloom (x3), tone map
+star     : 117 vertices, 576 indices, 192 triangles, one mesh
+star     : 40000 instances of 32 bytes -- 1.22 MB, host visible
+star     : binding 0 per vertex, binding 1 per INSTANCE
+compute  : max 1024 invocation(s) a group, max 1024 in x, 2147483647 group(s) in x
+compute  : subgroup 32 -- a workgroup not a multiple of it wastes lanes
+points   : gl_PointSize may be 1 to 2048 pixels on this card
+motes    : 160000 of 32 bytes -- 4.88 MB, device local, never mapped
+local    :   1 ->   101.4 us a step  (150000 group(s))
+local    :   8 ->    15.1 us a step  ( 18750 group(s))
+local    :  32 ->     9.7 us a step  (  4688 group(s))
+local    :  64 ->    14.3 us a step  (  2344 group(s))
+local    : 256 ->    16.7 us a step  (   586 group(s))
+step     : GPU    14.3 us   CPU  4866.3 us   341x
+step     : 150000 motes -- 10506.8 million a second on the card
+pipeline : 10 scene(s), each one a separate compiled object
+pipeline : cold    6035 us   filling    6709 us   cached    1692 us
+pipeline : 604 us each cold, 169 us each cached
+cache    : 31360 bytes, and this is what a game writes to disk
+record   : 4096 draws, push only            75.8 us    18.5 ns each
+record   : 4096 draws, rebinding sets      226.6 us    55.3 ns each
+record   : the bind costs 36.8 ns a draw, with NO layers on it
+instance : 10000 copies, one draw each     744.7 us   74.5 ns a copy
+instance : 10000 copies, ONE draw call     0.038 us   38.5 ns the call
+instance : the same triangles, recorded 19363 times more cheaply
+memtype  : cube_vb in type 1, cube_ib in type 1
+camera   : opening   at  +5.0 +1.0 +17.0  yaw +0.23 pitch +0.12  fwd -0.23 +0.11 -0.97
+inverse  : opening   placement * view is 1.91e-06 from the identity
+camera   : night     at  +5.0 +1.0 +17.0  yaw +0.23 pitch +0.12  fwd -0.23 +0.11 -0.97
+inverse  : night     placement * view is 1.91e-06 from the identity
+camera   : blaze     at  +5.0 +1.0 +17.0  yaw +0.23 pitch +0.12  fwd -0.23 +0.11 -0.97
+inverse  : blaze     placement * view is 1.91e-06 from the identity
+camera   : beam      at  +1.8 -1.6 +13.0  yaw +0.12 pitch +0.30  fwd -0.11 +0.30 -0.95
+inverse  : beam      placement * view is 9.54e-07 from the identity
+camera   : close     at  +3.6 -1.4  +5.4  yaw +0.23 pitch -0.18  fwd -0.22 -0.18 -0.96
+inverse  : close     placement * view is 1.19e-07 from the identity
+camera   : swarm     at  +5.0 +1.0 +17.0  yaw +0.23 pitch +0.12  fwd -0.23 +0.11 -0.97
+inverse  : swarm     placement * view is 1.91e-06 from the identity
+camera   : orbit     at -13.0 +2.0 -11.0  yaw +3.98 pitch +0.06  fwd +0.74 +0.06 +0.67
+inverse  : orbit     placement * view is 9.54e-07 from the identity
+camera   : ground    at  +6.4 -5.3  +7.2  yaw +0.42 pitch +0.07  fwd -0.41 +0.07 -0.91
+inverse  : ground    placement * view is 4.77e-07 from the identity
+camera   : above     at  +4.0 +14.0 +14.0  yaw +0.23 pitch -0.52  fwd -0.20 -0.50 -0.84
+inverse  : above     placement * view is 9.54e-07 from the identity
+camera   : quiet     at  +5.0 +1.0 +17.0  yaw +0.23 pitch +0.12  fwd -0.23 +0.11 -0.97
+inverse  : quiet     placement * view is 1.91e-06 from the identity
+surface  : queue family 0 CAN present to this window
+surface  : 2 to 8 image(s), current 1280x720
+surface  : 5 format(s) offered
+present  : 5 mode(s) on this surface
+  FIFO        a queue, and the only one
+  FIFO_RELAXED  tear only if late
+  MAILBOX     replace the queued frame
+  IMMEDIATE   tear, never wait
+  other
+swapchain: 3 image(s) of 1280x720, FIFO, and you do not own them
+window   : created, never shown -- the capture opens no screen
+wrote  : opening   5310 of  14000 stars   62.1% culled  day 21, and nothing from the SDK
+wrote  : night     1868 of   5000 stars   62.6% culled  stopped down, and thinner
+wrote  : blaze     5338 of  14000 stars   61.9% culled  everything the HDR buffer can hold
+wrote  : beam      1397 of   4000 stars   65.1% culled  day 18, from a file
+wrote  : close      718 of   6000 stars   88.0% culled  the instrument, at arm's length
+wrote  : swarm    15077 of  40000 stars   62.3% culled  day 19, at four times the count
+wrote  : orbit     4724 of  14000 stars   66.3% culled  the far side of the observatory
+wrote  : ground    2057 of  10000 stars   79.4% culled  almost level with the floor
+wrote  : above     3443 of  14000 stars   75.4% culled  looking down at the shadow
+wrote  : quiet        0 of      0 stars    0.0% culled  the instrument, on its own
+compare: night     vs opening   100.00% of pixels differ
+compare: blaze     vs opening    84.52% of pixels differ
+compare: beam      vs opening    79.00% of pixels differ
+compare: close     vs opening    89.55% of pixels differ
+compare: swarm     vs opening    59.04% of pixels differ
+compare: orbit     vs opening    87.55% of pixels differ
+compare: ground    vs opening   100.00% of pixels differ
+compare: above     vs opening    93.94% of pixels differ
+compare: quiet     vs opening   100.00% of pixels differ
+provoke  : skipped -- with the layer off, nothing would report it
+layers   :   135321 us to build OFF    190337 us to build ON   1.41x
+dispatch : reloaded for the engine's own device, 0 missing
+wic      : asked for RGBA and was given BGRA
+debug    : 0 message(s) from the validation layer this run
+ship     : meridian.exe + scenes/, and nothing else at all
+done     : 10 picture(s), no window opened
+
+--- compare_beam.exe --------------------------------------------------
+compare: beam      vs opening    79.00% of pixels differ
+compare: swarm     vs opening    59.04% of pixels differ
+
+--- compare_close.exe -------------------------------------------------
+compare: close     vs opening    89.55% of pixels differ
+compare: orbit     vs opening    87.55% of pixels differ
+compare: ground    vs opening   100.00% of pixels differ
+compare: above     vs opening    93.94% of pixels differ
+
+--- compare_night.exe -------------------------------------------------
+compare: night     vs opening   100.00% of pixels differ
+compare: blaze     vs opening    84.52% of pixels differ
+
+--- compare_quiet.exe -------------------------------------------------
+compare: quiet     vs opening   100.00% of pixels differ

@@ -1,0 +1,81 @@
+# What this repository leaves out.
+#
+# Everything ignored below is produced by building or running the project: a
+# reader regenerates it with the same command the book prints. What stays is the
+# source, the fixtures the examples read, and the captured output each program
+# printed, so a reader can check their own run against the book's.
+
+# ===== generated: build artefacts and local files =====
+
+# Operating system
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+
+# Editors and IDEs
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Local credentials and generated key material. The books that use TLS print the
+# keytool/openssl command that makes these, so a reader generates their own.
+.env
+.env.local
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+
+# Scratch, backup and crash files
+.scratch/
+_scratch/
+*_old/
+_probe*
+*.bak
+*.orig
+*.rej
+*.tmp
+*.stackdump
+
+# Maintainers' notes. A capitalised Markdown file other than the three a reader
+# expects is a note about the tree, not part of any example.
+[A-Z]*.md
+!README.md
+!LICENSE.md
+!CHANGELOG.md
+
+# The example runner's own inputs and records. A reader runs the command the
+# book prints; these only tell the runner how, and a raw record holds local paths.
+*.args
+*.link
+*.files
+*.raw
+outputs/**/_*
+
+# C / C++ build output
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.pdb
+*.ilk
+*.exp
+
+# ===== end generated =====
+
+# ----- this book's own rules, kept -----
+# What this repository leaves out.
+#
+# Everything ignored below is produced by building or running the project: a
+# reader regenerates it with the same command the book prints. What stays is the
+# source, the fixtures the examples read, and the captured output each program
+# printed, so a reader can check their own run against the book's.

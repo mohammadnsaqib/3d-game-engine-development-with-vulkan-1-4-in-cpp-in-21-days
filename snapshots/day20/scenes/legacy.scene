@@ -1,0 +1,19 @@
+# A FILE FROM BEFORE THE STARS EXISTED.
+#
+# Version 1 of this format had no `stars` key, because Day 19 had not happened. The engine
+# reading it is version 2 and does not fail: a key that is absent takes the default the engine
+# already had, which for stars is none.
+#
+# THIS IS THE HALF OF COMPATIBILITY PEOPLE REMEMBER. The other half is in future.scene.
+
+meridian 1
+
+scene legacy
+  camera    9.0 3.0 20.0
+  look      0.380 0.020 60
+  tonemap   aces
+  exposure  1.0
+  bloom     0.60 1.00
+  dust      6000 drift box 30 0.7 1.0
+  note      a version 1 file
+end

@@ -1,0 +1,91 @@
+loader   : instance version 1.4.321
+layers   : 11 available, validation is PRESENT
+instance : created, asking for Vulkan 1.4, validation on
+devices  : 1
+  NVIDIA GeForce RTX 4070            discrete   api 1.4.325
+gpu      : NVIDIA GeForce RTX 4070
+queues   : 6 family(ies) on this card
+  family 0  16 queue(s)  graphics compute transfer sparse
+  family 1   2 queue(s)  transfer sparse
+  family 2   8 queue(s)  compute transfer sparse
+  family 3   1 queue(s)  transfer sparse
+  family 4   1 queue(s)  transfer sparse
+  family 5   1 queue(s)  transfer sparse
+device   : queue family 0, dynamic rendering and sync2 enabled
+dispatch : 59 device-level entry point(s) from the registry, 0 missing
+spirv    : 239 and 112 words, compiled at BUILD time
+push     : 64 bytes of range, 256 available, 128 guaranteed anywhere
+memory   : 5 type(s) in 3 heap(s)
+  heap 0   12011 MB  device local
+  heap 1   16304 MB  host
+  heap 2     214 MB  device local
+  type  0 heap 1  
+  type  1 heap 0  DEVICE_LOCAL 
+  type  2 heap 1  HOST_VISIBLE HOST_COHERENT 
+  type  3 heap 1  HOST_VISIBLE HOST_COHERENT HOST_CACHED
+  type  4 heap 2  DEVICE_LOCAL HOST_VISIBLE HOST_COHERENT 
+mesh     : 24 vertices (576 bytes), 36 indices, 6 faces
+upload   : both buffers staged in 3103.1 us
+pipeline : 10 scene(s), each one a separate compiled object
+pipeline : cold    5036 us   filling    7544 us   cached    3550 us
+pipeline : 504 us each cold, 355 us each cached
+cache    : 14226 bytes, and this is what a game writes to disk
+memtype  : cube_vb in type 1, cube_ib in type 1
+matrix   : mvp[5] with the flip -2.2044, without it +2.2044
+matrix   : every other element identical: yes
+surface  : queue family 0 CAN present to this window
+surface  : 2 to 8 image(s), current 1280x720
+surface  : 5 format(s) offered
+present  : 5 mode(s) on this surface
+  FIFO        a queue, and the only one
+  FIFO_RELAXED  tear only if late
+  MAILBOX     replace the queued frame
+  IMMEDIATE   tear, never wait
+  other
+swapchain: 3 image(s) of 1280x720, FIFO, and you do not own them
+window   : created, never shown -- the capture opens no screen
+wrote  : cube        1 draw(s)  one cube, three faces, and a matrix
+wrote  : spin        1 draw(s)  the same cube, turned somewhere else
+wrote  : wide        1 draw(s)  a 90 degree lens, close in
+wrote  : narrow      1 draw(s)  an 18 degree lens, far back: flat
+wrote  : ortho       1 draw(s)  no perspective divide at all
+wrote  : noflip      1 draw(s)  m[5] positive: the answer for five days
+wrote  : nocull      1 draw(s)  cullMode NONE: the inside shows through
+wrote  : far         1 draw(s)  the same lens, the camera pulled back
+wrote  : close       1 draw(s)  the camera almost touching it
+wrote  : grid       27 draw(s)  27 cubes, 27 push constants, and NO depth buffer
+compare: spin      vs cube     28.41% of pixels differ
+compare: wide      vs cube     11.12% of pixels differ
+compare: narrow    vs cube      5.77% of pixels differ
+compare: ortho     vs cube      9.97% of pixels differ
+compare: noflip    vs cube     30.38% of pixels differ
+compare: nocull    vs cube     17.34% of pixels differ
+compare: close     vs wide     77.71% of pixels differ
+compare: grid      vs cube     34.80% of pixels differ
+provoke  : submitting a command buffer that was never recorded
+  vk ERROR  vkQueueSubmit2():
+           pSubmits[0].pCommandBufferInfos[0].commandBuffer
+           VkCommandBuffer 0x27e460ab800 is unrecorded and contains no
+           commands.
+           The Vulkan spec states: The commandBuffer member of any element
+           of the pCommandBufferInfos member of any element of pSubmits
+           must be in the pending or executable state
+           (https://docs.vulkan.org/spec/latest/chapters/cmdbuffers.html#V
+           ID-vkQueueSubmit2-commandBuffer-03874)
+provoke  : vkQueueSubmit2 returned 0, and the layer said the rest
+wic      : asked for RGBA and was given BGRA
+debug    : 1 message(s) from the validation layer this run
+done     : 10 picture(s), no window opened
+
+--- compare_close.exe -------------------------------------------------
+compare: close     vs wide     77.71% of pixels differ
+
+--- compare_nocull.exe ------------------------------------------------
+compare: nocull    vs cube     17.34% of pixels differ
+
+--- compare_noflip.exe ------------------------------------------------
+compare: noflip    vs cube     30.38% of pixels differ
+
+--- compare_wide.exe --------------------------------------------------
+compare: wide      vs cube     11.12% of pixels differ
+compare: narrow    vs cube      5.77% of pixels differ
